@@ -118,8 +118,11 @@ a {
 
 .post-body video {
   display: block;
-  width: 100%;
+  width: min(100%, 420px);
+  max-height: 78vh;
   margin: 34px 0;
+  margin-right: auto;
+  margin-left: auto;
   border: 1px solid var(--faint);
   background: #000;
 }
