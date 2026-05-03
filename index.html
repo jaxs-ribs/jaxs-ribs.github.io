@@ -5,12 +5,18 @@ title: Home
 
 <section class="intro">
   <h1>Building things i find fun</h1>
+  <p>Notes on tools, games, agents, search, and other unfinished machinery.</p>
 </section>
 
 <section class="post-list" aria-label="Posts">
   {% for post in site.posts %}
     <a class="post-link" href="{{ post.url | relative_url }}">
-      <span class="post-link-title">{{ post.title }}</span>
+      <span>
+        <span class="post-link-title">{{ post.title }}</span>
+        {% if post.description %}
+          <span class="post-link-description">{{ post.description }}</span>
+        {% endif %}
+      </span>
       <span class="post-link-date">{{ post.date | date: "%Y-%m-%d" }}</span>
     </a>
   {% endfor %}

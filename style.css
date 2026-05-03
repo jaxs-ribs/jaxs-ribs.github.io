@@ -114,6 +114,14 @@ a {
   white-space: nowrap;
 }
 
+.post-link-description {
+  display: block;
+  max-width: 620px;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
 .post-header {
   margin-bottom: 40px;
 }
