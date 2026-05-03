@@ -76,6 +76,18 @@ a {
   margin-bottom: 48px;
 }
 
+.intro-image {
+  margin: 0 0 28px;
+  border: 1px solid var(--faint);
+  background: #fff;
+}
+
+.intro-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .intro h1,
 .post h1 {
   margin: 0 0 16px;
