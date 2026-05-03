@@ -1,7 +1,8 @@
 title: Luc Baracat
 description: Notes on tools, games, agents, search, and other unfinished machinery.
-url: ""
+url: "https://jaxs-ribs.github.io"
 baseurl: ""
+image: "/assets/integratethemodules.jpeg"
 markdown: kramdown
 permalink: /:title/
 
