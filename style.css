@@ -73,11 +73,11 @@ a {
 }
 
 .intro {
-  margin-bottom: 78px;
+  margin-bottom: 86px;
 }
 
 .intro-image {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   background: #fff;
 }
 
@@ -95,16 +95,18 @@ a {
 }
 
 .intro-copy {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.78fr);
-  gap: 28px;
+  display: flex;
   align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 12px;
 }
 
 .intro h1 {
   margin: 0;
-  font-size: clamp(26px, 3.4vw, 38px);
-  line-height: 1.08;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  font-weight: 650;
   letter-spacing: 0;
 }
 
@@ -115,10 +117,10 @@ a {
 }
 
 .intro p {
-  max-width: 340px;
-  justify-self: end;
-  font-size: 0.98rem;
-  line-height: 1.45;
+  max-width: 410px;
+  text-align: right;
+  font-size: 0.92rem;
+  line-height: 1.42;
 }
 
 .post-list {
@@ -299,16 +301,17 @@ a {
 
   .intro-copy {
     display: block;
+    padding-top: 10px;
   }
 
   .intro h1 {
-    font-size: clamp(25px, 8vw, 34px);
-    margin-bottom: 10px;
+    font-size: 1.02rem;
+    margin-bottom: 6px;
   }
 
   .intro p {
     max-width: none;
-    justify-self: auto;
+    text-align: left;
   }
 
   .post-link {
