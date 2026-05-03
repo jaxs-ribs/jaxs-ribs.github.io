@@ -5,7 +5,7 @@
   --muted: #a6a6a6;
   --faint: #2a2a2a;
   --link: #8db4ff;
-  --max: 760px;
+  --max: 860px;
 }
 
 * {
@@ -46,7 +46,7 @@ a {
 .page {
   width: min(var(--max), calc(100vw - 36px));
   margin: 0 auto;
-  padding: 48px 0 80px;
+  padding: 42px 0 72px;
 }
 
 .site-header {
@@ -54,7 +54,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 72px;
+  margin-bottom: 54px;
 }
 
 .site-title {
@@ -85,7 +85,8 @@ a {
 }
 
 .intro {
-  margin: 34px 0 72px;
+  max-width: 720px;
+  margin: 8px auto 64px;
 }
 
 .intro-image {
@@ -118,6 +119,8 @@ a {
 
 .intro p {
   max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
   font-size: 0.98rem;
   line-height: 1.48;
 }
@@ -127,19 +130,18 @@ a {
 }
 
 .post-link {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  padding: 26px 0;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 28px;
+  padding: 30px 0;
   border-bottom: 1px solid var(--faint);
   color: var(--fg);
   text-decoration: none;
 }
 
 .post-link-image {
-  flex: 0 0 148px;
-  width: 148px;
-  aspect-ratio: 1;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid var(--faint);
   background: #000;
@@ -149,14 +151,14 @@ a {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
 .post-link-copy {
   display: block;
-  flex: 1;
   min-width: 0;
+  align-self: center;
 }
 
 .post-link-main {
@@ -184,10 +186,11 @@ a {
 
 .post-link-description {
   display: block;
-  max-width: 620px;
-  margin-top: 4px;
+  max-width: 560px;
+  margin-top: 8px;
   color: var(--muted);
   font-size: 0.96rem;
+  line-height: 1.48;
 }
 
 .post-header {
@@ -280,6 +283,25 @@ a {
   font-size: 0.92em;
 }
 
+.site-footer {
+  display: flex;
+  gap: 14px;
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--faint);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-footer a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--fg);
+}
+
 @media (max-width: 640px) {
   body {
     font-size: 16px;
@@ -295,7 +317,7 @@ a {
   }
 
   .intro {
-    margin: 18px 0 52px;
+    margin: 10px 0 50px;
   }
 
   .intro p {
@@ -304,13 +326,13 @@ a {
   }
 
   .post-link {
-    align-items: flex-start;
-    gap: 14px;
+    display: block;
+    padding: 26px 0;
   }
 
   .post-link-image {
-    flex-basis: 104px;
-    width: 104px;
+    width: 100%;
+    margin-bottom: 16px;
   }
 
   .post-link-main {
