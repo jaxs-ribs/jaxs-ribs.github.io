@@ -1,6 +1,7 @@
 ---
 title: "Fluency Computer and Human Learning"
 description: "A three-week language learning prototype built around low-latency scoring and adaptive card selection."
+image: "/assets/fluency-computer-preview.png"
 ---
 
 > I built this as a three-week side project/prototype. I’m sharing it because the interaction model feels interesting. I'm likely not going to pursue this further, for reasons mentioned at the end of the post.

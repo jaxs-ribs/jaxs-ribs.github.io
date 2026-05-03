@@ -11,13 +11,20 @@ title: Home
 <section class="post-list" aria-label="Posts">
   {% for post in site.posts %}
     <a class="post-link" href="{{ post.url | relative_url }}">
-      <span>
-        <span class="post-link-title">{{ post.title }}</span>
+      {% if post.image %}
+        <span class="post-link-image" aria-hidden="true">
+          <img src="{{ post.image | relative_url }}" alt="">
+        </span>
+      {% endif %}
+      <span class="post-link-copy">
+        <span class="post-link-main">
+          <span class="post-link-title">{{ post.title }}</span>
+          <span class="post-link-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </span>
         {% if post.description %}
           <span class="post-link-description">{{ post.description }}</span>
         {% endif %}
       </span>
-      <span class="post-link-date">{{ post.date | date: "%Y-%m-%d" }}</span>
     </a>
   {% endfor %}
 </section>
