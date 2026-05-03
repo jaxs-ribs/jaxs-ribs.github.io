@@ -18,6 +18,27 @@ bundle exec jekyll serve
 
 Then open `http://localhost:4000`.
 
+## Link preview images
+
+Each post should use a dedicated 1200x630 JPEG for link previews. Generate it
+from the post's main image:
+
+```sh
+scripts/make-og-image assets/source-image.png assets/post-slug-og.jpg
+```
+
+Then set these front matter fields:
+
+```yaml
+image: "/assets/post-slug-og.jpg"
+image_width: 1200
+image_height: 630
+image_type: "image/jpeg"
+```
+
+The layout emits `og:image`, `og:image:secure_url`, dimensions, type, and
+Twitter image metadata from those fields.
+
 ## Video
 
 The Fluency Computer demo is only about 3 MB, so it is committed directly at:

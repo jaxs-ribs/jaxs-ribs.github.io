@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+from pathlib import Path
+import re
+import sys
+
+REQUIRED = {
+    "image": None,
+    "image_width": "1200",
+    "image_height": "630",
+    "image_type": "image/jpeg",
+}
+
+
+def front_matter(path: Path) -> dict[str, str]:
+    text = path.read_text()
+    if not text.startswith("---"):
+        return {}
+    try:
+        _, fm, _ = text.split("---", 2)
+    except ValueError:
+        return {}
+    data: dict[str, str] = {}
+    for line in fm.splitlines():
+        if ":" not in line:
+            continue
+        key, value = line.split(":", 1)
+        data[key.strip()] = value.strip().strip('"')
+    return data
+
+
+def main() -> int:
+    root = Path(__file__).resolve().parents[1]
+    failures: list[str] = []
+
+    for post in sorted((root / "_posts").glob("*.md")):
+        data = front_matter(post)
+        for key, expected in REQUIRED.items():
+            actual = data.get(key)
+            if not actual:
+                failures.append(f"{post}: missing {key}")
+                continue
+            if expected is not None and actual != expected:
+                failures.append(f"{post}: {key} is {actual!r}, expected {expected!r}")
+
+        image = data.get("image")
+        if image:
+            image_path = root / image.lstrip("/")
+            if not image_path.exists():
+                failures.append(f"{post}: image does not exist: {image}")
+            elif image_path.suffix.lower() not in {".jpg", ".jpeg"}:
+                failures.append(f"{post}: image should be a JPEG: {image}")
+
+    if failures:
+        print("\n".join(failures), file=sys.stderr)
+        return 1
+
+    print("All posts have 1200x630 JPEG preview metadata.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

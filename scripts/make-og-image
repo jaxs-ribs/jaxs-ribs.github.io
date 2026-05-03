@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage: scripts/make-og-image SOURCE OUTPUT
+
+Creates a 1200x630 JPEG suitable for Open Graph / Signal / Twitter previews.
+The source image is center-cropped to 1.91:1, resized to 1200x630, and saved
+with web-friendly JPEG compression.
+
+Example:
+  scripts/make-og-image assets/samsara-header.png assets/samsara-og.jpg
+EOF
+}
+
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  usage
+  exit 0
+fi
+
+if [[ $# -ne 2 ]]; then
+  usage >&2
+  exit 1
+fi
+
+src="$1"
+out="$2"
+
+if [[ ! -f "$src" ]]; then
+  echo "Source image not found: $src" >&2
+  exit 1
+fi
+
+if ! command -v sips >/dev/null 2>&1; then
+  echo "sips is required. This script is intended for macOS." >&2
+  exit 1
+fi
+
+width=$(sips -g pixelWidth "$src" 2>/dev/null | awk '/pixelWidth/ {print $2}')
+height=$(sips -g pixelHeight "$src" 2>/dev/null | awk '/pixelHeight/ {print $2}')
+
+if [[ -z "$width" || -z "$height" ]]; then
+  echo "Could not read image dimensions for: $src" >&2
+  exit 1
+fi
+
+read -r crop_width crop_height < <(python3 - "$width" "$height" <<'PY'
+import sys
+w = int(sys.argv[1])
+h = int(sys.argv[2])
+target = 1200 / 630
+if w / h > target:
+    print(round(h * target), h)
+else:
+    print(w, round(w / target))
+PY
+)
+
+tmpdir=$(mktemp -d)
+trap 'rm -rf "$tmpdir"' EXIT
+cropped="$tmpdir/cropped.png"
+resized="$tmpdir/resized.png"
+
+sips --cropToHeightWidth "$crop_height" "$crop_width" "$src" --out "$cropped" >/dev/null 2>/dev/null
+sips --resampleHeightWidth 630 1200 "$cropped" --out "$resized" >/dev/null 2>/dev/null
+mkdir -p "$(dirname "$out")"
+sips -s format jpeg -s formatOptions 86 "$resized" --out "$out" >/dev/null 2>/dev/null
+
+bytes=$(wc -c < "$out" | tr -d ' ')
+printf 'Wrote %s (1200x630, %s bytes)\n' "$out" "$bytes"
