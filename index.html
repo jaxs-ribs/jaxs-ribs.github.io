@@ -1,0 +1,18 @@
+---
+layout: default
+title: Home
+---
+
+<section class="intro">
+  <h1>Notes on things I build.</h1>
+  <p>Short writeups on prototypes, systems, interfaces, and whatever else survives contact with reality.</p>
+</section>
+
+<section class="post-list" aria-label="Posts">
+  {% for post in site.posts %}
+    <a class="post-link" href="{{ post.url | relative_url }}">
+      <span class="post-link-title">{{ post.title }}</span>
+      <span class="post-link-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+    </a>
+  {% endfor %}
+</section>

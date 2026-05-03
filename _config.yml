@@ -1,0 +1,13 @@
+title: Luc Baracat
+description: Project notes, prototypes, and technical writeups.
+url: ""
+baseurl: ""
+markdown: kramdown
+permalink: /:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
