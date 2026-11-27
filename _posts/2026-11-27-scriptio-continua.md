@@ -1,8 +1,8 @@
 ---
 title: "Scriptio Continua and Local Optima In Interfaces"
 date: 2026-11-27 15:00:00 +0800
-description: "Laying out sentences by their grammar, a reader for the Daylight Computer, and Beyond Good and Evil to read in it."
-image: "/assets/scriptio-continua-og.jpg"
+description: "What if we're just like the people that didn't put spaces between their words?"
+image: "/assets/scriptio-continua-preview.jpg"
 image_width: 1200
 image_height: 630
 image_type: "image/jpeg"
