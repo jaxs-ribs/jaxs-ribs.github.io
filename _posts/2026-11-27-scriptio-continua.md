@@ -13,7 +13,7 @@ image_type: "image/jpeg"
 
 <figure class="post-hero">
   <img src="{{ '/assets/scriptio-continua-header.jpg' | relative_url }}" alt="A Greek inscription cut in stone, its letters running on line after line with no spaces between the words.">
-  <figcaption>A Greek inscription in scriptio continua: no spaces, no punctuation, every word run into the next.</figcaption>
+  <figcaption>People didn't put spaces between their words</figcaption>
 </figure>
 
 For most of antiquity, Latin was written without spaces between words, LIKETHISFORPAGESONEND. In the 7th century, Irish scribes who were less familiar with Latin started leaving spaces between words, and over the following centuries the rest of Europe copied them. Today, nobody thinks of this as an invention.
@@ -51,7 +51,7 @@ Here is the same reader, with all of Beyond Good and Evil in it.
   <div class="sr-device">
     <iframe src="{{ '/assets/sense-lines/beyond-good-and-evil.html' | relative_url }}?embed" title="Beyond Good and Evil, in sense lines" loading="lazy"></iframe>
   </div>
-  <figcaption>The reader as it is on the Daylight, at its full screen size. Click the right of the page to turn it, the left to go back, the middle for the menu.</figcaption>
+  <figcaption>Click the right of the page to turn it, the left to go back, the middle for the menu.</figcaption>
 </figure>
 
 ### A new interface for talking to LLMs?
