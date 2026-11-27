@@ -1,0 +1,73 @@
+/* Sense lines in a post: a dark sheet on the site's dark ground, in the reader's type (Literata). Two
+   kinds of figure: a single sentence (figure.sense-lines) and the whole reader in a frame
+   (figure.sense-reader). Both read as sheets of the same paper. */
+@font-face { font-family: "Literata"; src: url("fonts/Literata[opsz,wght].ttf") format("truetype"); font-weight: 200 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Literata"; src: url("fonts/Literata-Italic[opsz,wght].ttf") format("truetype"); font-weight: 200 900; font-style: italic; font-display: swap; }
+
+:root {
+  /* the site is dark, and so is everything here: ink is a warm light grey, never white */
+  --sl-paper: #0e0d0c;
+  --sl-ink: #e4dfd4;
+  --sl-soft: #9a958b;
+  --sl-rule: rgba(228, 223, 212, 0.14);
+  --sl-guide: rgba(228, 223, 212, 0.32);
+  --sl-on: rgba(228, 223, 212, 0.13);
+  --sl-serif: "Literata", "Iowan Old Style", Charter, Georgia, serif;
+}
+
+/* ---------- one sentence ---------- */
+figure.sense-lines { margin: 40px 0 44px; }
+.sl-sheet {
+  background: var(--sl-paper); color: var(--sl-ink); font-family: var(--sl-serif); font-optical-sizing: auto;
+  border-radius: 10px; padding: 18px clamp(20px, 5vw, 44px) 30px; border: 1px solid var(--sl-rule);
+}
+.sl-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.sl-label { font-variant-caps: all-small-caps; letter-spacing: 0.12em; font-size: 15px; color: var(--sl-soft); }
+.sl-toggle { display: inline-flex; border: 1px solid var(--sl-rule); border-radius: 999px; padding: 3px; flex: none; }
+.sl-toggle button {
+  font: inherit; font-family: var(--sl-serif); font-size: 15px; color: var(--sl-soft); background: none; border: 0;
+  border-radius: 999px; padding: 6px 15px; cursor: pointer; line-height: 1.2;
+}
+.sl-toggle button.on { background: var(--sl-on); color: var(--sl-ink); }
+.sl-toggle button:focus-visible { outline: 2px solid var(--sl-ink); outline-offset: 2px; }
+.sl-body { font-size: clamp(17px, 2.2vw, 20px); }
+.sl-lines { line-height: 1.38; }
+.sl-col { position: relative; }
+.sl-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(24px, 4vw, 48px); }
+.sl-split .sl-col + .sl-col { border-left: 1px solid var(--sl-rule); padding-left: clamp(20px, 3vw, 40px); }
+@media (max-width: 720px) {
+  .sl-split { grid-template-columns: 1fr; }
+  .sl-split .sl-col + .sl-col { border-left: 0; padding-left: 0; margin-top: 0.2em; }
+}
+.sl-line { padding-left: calc(var(--lv) * 1.05em + 1.2em); text-indent: -1.2em; }
+.sl-col svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.sl-lines path { fill: none; stroke: var(--sl-guide); stroke-width: 1; shape-rendering: crispEdges; }
+.sl-prose { margin: 0; line-height: 1.55; text-align: left; hyphens: auto; max-width: 34em; }
+.sl-sheet [hidden] { display: none !important; }
+
+/* ---------- the whole reader, exactly as on the Daylight: the page is drawn at the device's own
+   screen size (960 x 1280 CSS pixels, its 1200 x 1600 screen at density 200) and scaled down to fit,
+   so every line, margin and bar falls where it does on the device ---------- */
+figure.sense-reader { margin: 44px auto 12px; width: min(100%, calc(88vh * 0.75)); }
+.sr-device { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 6px; background: #f7f5ef; }
+.sr-device iframe {
+  position: absolute; top: 0; left: 0; width: 960px; height: 1280px; border: 0;
+  transform: scale(var(--k, 0.5)); transform-origin: 0 0;
+}
+figure.sense-reader figcaption {
+  margin-top: 14px; text-align: center; color: var(--muted, #a6a6a6); font-size: 0.9rem; line-height: 1.5;
+}
+
+/* ---------- the clip of the reader on the device ---------- */
+figure.sense-video { margin: 40px auto 36px; width: min(100%, 340px); }
+figure.sense-video video {
+  display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 18px;
+  background: var(--sl-paper); border: 1px solid var(--sl-rule);
+}
+figure.sense-video figcaption {
+  margin-top: 12px; text-align: center; color: var(--muted, #a6a6a6); font-size: 0.9rem; line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+  .sl-bar { flex-wrap: wrap; }
+}
