@@ -365,9 +365,16 @@ a {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+.older-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+@media (max-width: 560px) {
+  .older-grid { grid-template-columns: 1fr; }
+}
 .older-link {
   display: block;
-  width: min(100%, 340px);
   border: 1px solid var(--faint);
   transition: border-color 0.15s;
 }
@@ -379,4 +386,23 @@ a {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+}
+.older-link {
+  color: var(--fg);
+  text-decoration: none;
+}
+.older-name {
+  display: block;
+  padding: 10px 12px 11px;
+  font-size: 0.95rem;
+}
+.older-year {
+  margin-left: 6px;
+  color: var(--muted);
+}
+.older-link:hover .older-name {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

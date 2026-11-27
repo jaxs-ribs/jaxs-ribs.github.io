@@ -36,7 +36,14 @@ title: Home
 
 <section class="older" aria-label="Older projects">
   <h2 class="older-title">Older projects</h2>
-  <a class="older-link" href="{{ '/neobrawl/' | relative_url }}" aria-label="NeoBrawl, a game">
-    <video src="{{ '/assets/neobrawl.mp4' | relative_url }}" poster="{{ '/assets/neobrawl.jpg' | relative_url }}" autoplay muted loop playsinline preload="auto" width="720" height="406" aria-label="NeoBrawl: a red and a blue bot fighting among black crates"></video>
-  </a>
+  <div class="older-grid">
+    <a class="older-link" href="{{ '/neobrawl/' | relative_url }}">
+      <video src="{{ '/assets/neobrawl.mp4' | relative_url }}" poster="{{ '/assets/neobrawl.jpg' | relative_url }}" autoplay muted loop playsinline preload="auto" width="720" height="406" aria-label="NeoBrawl: a red and a blue bot fighting among black crates"></video>
+      <span class="older-name">NeoBrawl <span class="older-year">2015</span></span>
+    </a>
+    <a class="older-link" href="{{ '/squarelights/' | relative_url }}">
+      <video src="{{ '/assets/squarelights.mp4' | relative_url }}" poster="{{ '/assets/squarelights.jpg' | relative_url }}" autoplay muted loop playsinline preload="auto" width="720" height="432" aria-label="Square Lights: a small runner jumping between rows of coloured squares"></video>
+      <span class="older-name">Square Lights <span class="older-year">2014</span></span>
+    </a>
+  </div>
 </section>
