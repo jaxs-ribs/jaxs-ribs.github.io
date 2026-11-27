@@ -16,7 +16,7 @@ image_type: "image/jpeg"
   <figcaption>People didn't put spaces between their words</figcaption>
 </figure>
 
-For most of antiquity, Latin was written without spaces between words, LIKETHISFORPAGESONEND. In the 7th century, Irish scribes who were less familiar with Latin started leaving spaces between words, and over the following centuries the rest of Europe copied them. Today, nobody thinks of this as an invention.
+For most of antiquity, Greek and Latin were written without spaces between words, LIKETHISFORPAGESONEND. In the 7th century, Irish scribes who were less familiar with Latin started leaving spaces between words, and over the following centuries the rest of Europe copied them. Today, nobody thinks of this as an invention.
 
 How many improvements like that are still latent?
 
