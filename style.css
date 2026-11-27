@@ -352,3 +352,31 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* the end of the homepage: older work, shown and not described */
+.older {
+  padding: 56px 0 24px;
+}
+.older-title {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.older-link {
+  display: block;
+  width: min(100%, 340px);
+  border: 1px solid var(--faint);
+  transition: border-color 0.15s;
+}
+.older-link:hover,
+.older-link:focus-visible {
+  border-color: var(--muted);
+}
+.older-link video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
